@@ -122,7 +122,7 @@ class DisqusResource
         $data = call_user_func($api->formats[$format], $response['data']);
 
         if ($response['code'] != 200) {
-            throw new DisqusAPIError($data->code, $data->response);
+            throw new DisqusAPIError($response['code'], $response['data']);
         }
 
         return $data;
